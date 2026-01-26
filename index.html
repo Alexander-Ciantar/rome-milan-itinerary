@@ -52,7 +52,26 @@
     .title{
       flex: 1 1 520px;
       min-width: 280px;
+
+    .page-title{
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
+    
+    .title-logo{
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    }
+    @media (max-width: 600px){
+      .title-logo{
+        width: 36px;
+        height: 36px;
+      }
+    }
+
     h1{
       margin:0 0 8px;
       font-size: clamp(24px, 4vw, 40px);
@@ -1133,6 +1152,7 @@
   </script>
 </body>
 </html>
+
 
 
 
