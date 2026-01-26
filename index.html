@@ -16,111 +16,117 @@
   <!-- iOS app-like behaviour -->
   <link rel="apple-touch-icon" href="favicon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Rome & Milan">
 
-  <meta name="description" content="A history + food itinerary for two couples visiting Rome and Milan, 14–20 June 2026." />
+  <!-- Android / Chrome -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- SEO -->
+  <meta
+    name="description"
+    content="A history + food itinerary for two couples visiting Rome and Milan, 14–20 June 2026."
+  />
+
 
   <style>
-    :root{
-      --bg:#0b1020;
-      --card:#121a33;
-      --muted:#9fb0d0;
-      --text:#eaf0ff;
-      --accent:#7dd3fc;
-      --accent2:#a78bfa;
-      --good:#34d399;
-      --warn:#fbbf24;
-      --border: rgba(255,255,255,.10);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: var(--sans);
-      color:var(--text);
-      background:
-        radial-gradient(1200px 800px at 15% 10%, rgba(125, 211, 252, .18), transparent 60%),
-        radial-gradient(900px 700px at 85% 15%, rgba(167, 139, 250, .16), transparent 55%),
-        radial-gradient(900px 700px at 60% 110%, rgba(52, 211, 153, .12), transparent 55%),
-        linear-gradient(180deg, var(--bg), #050816 70%, #040611);
-      line-height:1.45;
-    }
-    a{color:inherit}
-    .wrap{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 28px 18px 60px;
-    }
-    header{
-      display:flex;
-      gap:18px;
-      align-items:flex-start;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      margin-bottom:18px;
-    }
-    .title{
-      flex: 1 1 520px;
-      min-width: 280px;
-    }
+  :root{
+    --bg:#0b1020;
+    --card:#121a33;
+    --muted:#9fb0d0;
+    --text:#eaf0ff;
+    --accent:#7dd3fc;
+    --accent2:#a78bfa;
+    --good:#34d399;
+    --warn:#fbbf24;
+    --border: rgba(255,255,255,.10);
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --radius: 18px;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: var(--sans);
+    color:var(--text);
+    background:
+      radial-gradient(1200px 800px at 15% 10%, rgba(125, 211, 252, .18), transparent 60%),
+      radial-gradient(900px 700px at 85% 15%, rgba(167, 139, 250, .16), transparent 55%),
+      radial-gradient(900px 700px at 60% 110%, rgba(52, 211, 153, .12), transparent 55%),
+      linear-gradient(180deg, var(--bg), #050816 70%, #040611);
+    line-height:1.45;
+  }
+  a{color:inherit}
+  .wrap{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 18px 60px;
+  }
+  header{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+  }
+  .title{
+    flex: 1 1 520px;
+    min-width: 280px;
+  }
 
-    /* ===== Title (Option 1) ===== */
-    .page-title{
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .title-text{
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-    }
-    .title-year{
-      font-size: 0.75em;
-      font-weight: 600;
-      opacity: 0.9;
-    }
+  /* ===== Title (Option 1) ===== */
+  .page-title{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .title-text{
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+  }
+  .title-year{
+    font-size: 0.75em;
+    font-weight: 600;
+    opacity: 0.9;
+  }
 
+  .title-logo{
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    flex-shrink: 0; /* prevents squashing */
+  }
+  @media (max-width: 600px){
     .title-logo{
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,.25);
-      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
     }
-    @media (max-width: 600px){
-      .title-logo{
-        width: 36px;
-        height: 36px;
-      }
-    }
+  }
 
-    h1{
-      margin:0 0 8px;
-      font-size: clamp(24px, 4vw, 40px);
-      letter-spacing:-.02em;
-    }
-    .subtitle{
-      color:var(--muted);
-      margin:0;
-      font-size: 15px;
-    }
-
-    .chips{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      flex: 1 1 260px;
-      min-width: 260px;
-      margin-top: 6px;
-    }
+  h1{
+    margin:0 0 8px;
+    font-size: clamp(24px, 4vw, 40px);
+    letter-spacing:-.02em;
+  }
+  .subtitle{
+    color:var(--muted);
+    margin:0;
+    font-size: 15px;
+  }
+  .chips{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    flex: 1 1 260px;
+    min-width: 260px;
+    margin-top: 6px;
+  }
     .tripChips{
       justify-content:flex-start;
       flex: 0 0 auto;
@@ -132,352 +138,352 @@
       line-height: 1;
       margin-right: 2px;
     }
+  .chip{
+    border:1px solid var(--border);
+    background: rgba(255,255,255,.04);
+    padding: 10px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--text);
+    display:flex;
+    gap:8px;
+    align-items:center;
+    box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    white-space:nowrap;
+  }
+  .dot{
+    width:9px;height:9px;border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(125,211,252,.12);
+    flex:0 0 auto;
+  }
+  .dot.purple{background:var(--accent2); box-shadow:0 0 0 4px rgba(167,139,250,.12)}
+  .dot.green{background:var(--good); box-shadow:0 0 0 4px rgba(52,211,153,.12)}
+  .dot.yellow{background:var(--warn); box-shadow:0 0 0 4px rgba(251,191,36,.12)}
 
-    .chip{
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--text);
-      display:flex;
-      gap:8px;
-      align-items:center;
-      box-shadow: 0 2px 10px rgba(0,0,0,.15);
-      white-space:nowrap;
-    }
-    .dot{
-      width:9px;height:9px;border-radius:50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(125,211,252,.12);
-      flex:0 0 auto;
-    }
-    .dot.purple{background:var(--accent2); box-shadow:0 0 0 4px rgba(167,139,250,.12)}
-    .dot.green{background:var(--good); box-shadow:0 0 0 4px rgba(52,211,153,.12)}
-    .dot.yellow{background:var(--warn); box-shadow:0 0 0 4px rgba(251,191,36,.12)}
+  .grid{
+    display:grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 14px;
+    margin: 18px 0 12px;
+  }
+  @media (max-width: 920px){
+    .grid{grid-template-columns:1fr; }
+    .chips{justify-content:flex-start}
+  }
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
-      margin: 18px 0 12px;
-    }
-    @media (max-width: 920px){
-      .grid{grid-template-columns:1fr; }
-      .chips{justify-content:flex-start}
-    }
+  .card{
+    background: rgba(18,26,51,.78);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow:hidden;
+  }
+  .card .hd{
+    padding: 16px 16px 10px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .card .hd h2{
+    margin:0;
+    font-size: 16px;
+    letter-spacing:-.01em;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .badge{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(234,240,255,.9);
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04);
+    padding: 6px 10px;
+    border-radius: 999px;
+    white-space:nowrap;
+  }
+  .card .bd{
+    padding: 14px 16px 16px;
+    color: rgba(234,240,255,.92);
+  }
+  .muted{color: var(--muted)}
+  .kvs{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+    margin-top: 8px;
+  }
+  @media (max-width: 560px){ .kvs{grid-template-columns:1fr} }
+  .kv{
+    padding: 12px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.03);
+  }
+  .kv .k{
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .kv .v{
+    font-size: 13px;
+  }
 
-    .card{
-      background: rgba(18,26,51,.78);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .card .hd{
-      padding: 16px 16px 10px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .card .hd h2{
-      margin:0;
-      font-size: 16px;
-      letter-spacing:-.01em;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .badge{
-      font-family: var(--mono);
-      font-size: 11px;
-      color: rgba(234,240,255,.9);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding: 6px 10px;
-      border-radius: 999px;
-      white-space:nowrap;
-    }
-    .card .bd{
-      padding: 14px 16px 16px;
-      color: rgba(234,240,255,.92);
-    }
-    .muted{color: var(--muted)}
-    .kvs{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-      margin-top: 8px;
-    }
-    @media (max-width: 560px){ .kvs{grid-template-columns:1fr} }
-    .kv{
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .kv .k{
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-    .kv .v{
-      font-size: 13px;
-    }
+  .timeline{
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .day{
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 18px;
+    overflow:hidden;
+    background: rgba(255,255,255,.03);
+  }
+  .day .top{
+    padding: 14px 14px 12px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    background: linear-gradient(90deg, rgba(125,211,252,.10), rgba(167,139,250,.08), rgba(255,255,255,0));
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .day h3{
+    margin:0;
+    font-size: 15px;
+    letter-spacing:-.01em;
+  }
+  .meta{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    align-items:center;
+  }
+  .pill{
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(0,0,0,.12);
+    color: rgba(234,240,255,.9);
+    white-space:nowrap;
+  }
+  .pill.rome{border-color: rgba(125,211,252,.28); background: rgba(125,211,252,.08)}
+  .pill.milan{border-color: rgba(167,139,250,.28); background: rgba(167,139,250,.08)}
+  .pill.travel{border-color: rgba(251,191,36,.35); background: rgba(251,191,36,.10)}
+  .pill.food{border-color: rgba(52,211,153,.30); background: rgba(52,211,153,.10)}
 
-    .timeline{
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .day{
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 18px;
-      overflow:hidden;
-      background: rgba(255,255,255,.03);
-    }
-    .day .top{
-      padding: 14px 14px 12px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      background: linear-gradient(90deg, rgba(125,211,252,.10), rgba(167,139,250,.08), rgba(255,255,255,0));
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .day h3{
-      margin:0;
-      font-size: 15px;
-      letter-spacing:-.01em;
-    }
-    .meta{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      align-items:center;
-    }
-    .pill{
-      font-size: 11px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.12);
-      color: rgba(234,240,255,.9);
-      white-space:nowrap;
-    }
-    .pill.rome{border-color: rgba(125,211,252,.28); background: rgba(125,211,252,.08)}
-    .pill.milan{border-color: rgba(167,139,250,.28); background: rgba(167,139,250,.08)}
-    .pill.travel{border-color: rgba(251,191,36,.35); background: rgba(251,191,36,.10)}
-    .pill.food{border-color: rgba(52,211,153,.30); background: rgba(52,211,153,.10)}
+  .sections{
+    padding: 12px 14px 14px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 780px){ .sections{grid-template-columns:1fr} }
 
-    .sections{
-      padding: 12px 14px 14px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    @media (max-width: 780px){ .sections{grid-template-columns:1fr} }
+  .section{
+    padding: 12px 12px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+    background: rgba(0,0,0,.10);
+  }
+  .section h4{
+    margin:0 0 8px;
+    font-size: 12px;
+    color: rgba(234,240,255,.92);
+    letter-spacing:.02em;
+    text-transform: uppercase;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .section h4 span{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-transform:none;
+  }
+  ul{
+    margin:0;
+    padding-left: 18px;
+    color: rgba(234,240,255,.92);
+    font-size: 13px;
+  }
+  li{margin: 6px 0}
+  .callout{
+    margin-top: 10px;
+    padding: 12px 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(52,211,153,.35);
+    background: rgba(52,211,153,.08);
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+  .callout strong{display:block; margin-bottom:4px}
+  .callout .emoji{font-size: 18px; line-height:1; margin-top: 2px}
+  .tips{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+  @media (max-width: 840px){ .tips{grid-template-columns:1fr} }
+  .tip{
+    padding: 14px 14px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.03);
+  }
+  .tip h3{margin:0 0 6px; font-size: 14px}
+  .tip p{margin:0; color: var(--muted); font-size: 13px}
 
-    .section{
-      padding: 12px 12px;
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 16px;
-      background: rgba(0,0,0,.10);
-    }
-    .section h4{
-      margin:0 0 8px;
-      font-size: 12px;
-      color: rgba(234,240,255,.92);
-      letter-spacing:.02em;
-      text-transform: uppercase;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-    }
-    .section h4 span{
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--muted);
-      text-transform:none;
-    }
-    ul{
-      margin:0;
-      padding-left: 18px;
-      color: rgba(234,240,255,.92);
-      font-size: 13px;
-    }
-    li{margin: 6px 0}
-    .callout{
-      margin-top: 10px;
-      padding: 12px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(52,211,153,.35);
-      background: rgba(52,211,153,.08);
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .callout strong{display:block; margin-bottom:4px}
-    .callout .emoji{font-size: 18px; line-height:1; margin-top: 2px}
-    .tips{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
-    @media (max-width: 840px){ .tips{grid-template-columns:1fr} }
-    .tip{
-      padding: 14px 14px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .tip h3{margin:0 0 6px; font-size: 14px}
-    .tip p{margin:0; color: var(--muted); font-size: 13px}
+  .actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    margin-top: 12px;
+  }
+  button{
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.05);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 14px;
+    cursor:pointer;
+    font-size: 13px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.18);
+  }
+  button:hover{background: rgba(255,255,255,.08)}
+  footer{
+    margin-top: 18px;
+    color: rgba(159,176,208,.9);
+    font-size: 12px;
+    text-align:center;
+  }
 
-    .actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      margin-top: 12px;
-    }
-    button{
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 14px;
-      cursor:pointer;
-      font-size: 13px;
-      box-shadow: 0 4px 18px rgba(0,0,0,.18);
-    }
-    button:hover{background: rgba(255,255,255,.08)}
-    footer{
-      margin-top: 18px;
-      color: rgba(159,176,208,.9);
-      font-size: 12px;
-      text-align:center;
-    }
+  /* --- Booking / Prices UI --- */
+  .priceBox{
+    margin-top:10px;
+    padding:12px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(0,0,0,.18);
+  }
+  .priceRow{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    flex-wrap:wrap;
+    padding:10px 0;
+    border-top:1px dashed rgba(255,255,255,.10);
+  }
+  .priceRow:first-child{border-top:none; padding-top:0}
+  .priceRow:last-child{padding-bottom:0}
 
-    /* --- Booking / Prices UI --- */
-    .priceBox{
-      margin-top:10px;
-      padding:12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-    }
-    .priceRow{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:10px;
-      flex-wrap:wrap;
-      padding:10px 0;
-      border-top:1px dashed rgba(255,255,255,.10);
-    }
-    .priceRow:first-child{border-top:none; padding-top:0}
-    .priceRow:last-child{padding-bottom:0}
+  .priceTitle{font-weight:700; font-size:13px; margin-bottom:2px}
+  .priceMeta{font-size:12px; color: rgba(234,240,255,.72)}
+  .price{
+    font-weight:800;
+    font-size:14px;
+    color: var(--warn);
+    margin-top:4px;
+    letter-spacing:.01em;
+  }
 
-    .priceTitle{font-weight:700; font-size:13px; margin-bottom:2px}
-    .priceMeta{font-size:12px; color: rgba(234,240,255,.72)}
-    .price{
-      font-weight:800;
-      font-size:14px;
-      color: var(--warn);
-      margin-top:4px;
-      letter-spacing:.01em;
-    }
+  .btnRow{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; align-items:center}
+  .bookBtn{
+    display:inline-block;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:700;
+    border:1px solid rgba(255,255,255,.20);
+    background: linear-gradient(135deg, rgba(125,211,252,.92), rgba(167,139,250,.92));
+    color:#0b1020;
+    transition: transform .15s ease, filter .15s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,.20);
+  }
+  .bookBtn:hover{transform: translateY(-1px); filter: brightness(1.05);}
 
-    .btnRow{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; align-items:center}
-    .bookBtn{
-      display:inline-block;
-      text-decoration:none;
-      padding:8px 12px;
-      border-radius:12px;
-      font-size:12px;
-      font-weight:700;
-      border:1px solid rgba(255,255,255,.20);
-      background: linear-gradient(135deg, rgba(125,211,252,.92), rgba(167,139,250,.92));
-      color:#0b1020;
-      transition: transform .15s ease, filter .15s ease;
-      box-shadow: 0 4px 16px rgba(0,0,0,.20);
-    }
-    .bookBtn:hover{transform: translateY(-1px); filter: brightness(1.05);}
+  .toggleBtn{
+    padding:8px 10px;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:800;
+    border:1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.06);
+    color: var(--text);
+    box-shadow: 0 4px 16px rgba(0,0,0,.18);
+  }
+  .toggleBtn.booked{
+    border-color: rgba(52,211,153,.30);
+    background: rgba(52,211,153,.16);
+    color: rgba(234,240,255,.95);
+  }
 
-    .toggleBtn{
-      padding:8px 10px;
-      border-radius:12px;
-      font-size:12px;
-      font-weight:800;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      box-shadow: 0 4px 16px rgba(0,0,0,.18);
-    }
-    .toggleBtn.booked{
-      border-color: rgba(52,211,153,.30);
-      background: rgba(52,211,153,.16);
-      color: rgba(234,240,255,.95);
-    }
+  .select{
+    width:100%;
+    margin-top:6px;
+    padding:10px 10px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(0,0,0,.20);
+    color: var(--text);
+    outline:none;
+  }
 
-    .select{
-      width:100%;
-      margin-top:6px;
-      padding:10px 10px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.20);
-      color: var(--text);
-      outline:none;
-    }
+  .budgetGrid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+    margin-top:10px;
+  }
+  @media (max-width:560px){ .budgetGrid{grid-template-columns:1fr} }
+  .stat{
+    padding: 12px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.03);
+  }
+  .stat .k{font-size:12px; color: var(--muted); margin-bottom:6px}
+  .stat .v{font-size:18px; font-weight:900; letter-spacing:-.01em}
+  .stat .s{font-size:12px; color: rgba(234,240,255,.72); margin-top:4px}
 
-    .budgetGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-      margin-top:10px;
-    }
-    @media (max-width:560px){ .budgetGrid{grid-template-columns:1fr} }
-    .stat{
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .stat .k{font-size:12px; color: var(--muted); margin-bottom:6px}
-    .stat .v{font-size:18px; font-weight:900; letter-spacing:-.01em}
-    .stat .s{font-size:12px; color: rgba(234,240,255,.72); margin-top:4px}
+  .miniNote{
+    margin-top:10px;
+    font-size:12px;
+    color: rgba(234,240,255,.70);
+  }
 
-    .miniNote{
-      margin-top:10px;
-      font-size:12px;
-      color: rgba(234,240,255,.70);
-    }
+  /* Print styling */
+  @media print{
+    :root{ --bg:#fff; --text:#111; --muted:#444; }
+    body{ background:#fff; color:#111; }
+    .wrap{ max-width: 900px; padding: 0; }
+    .card, .day, .section, .kv, .tip{ box-shadow:none; background:#fff; border-color:#ddd; }
+    .card .hd, .day .top{ background:#f6f7fb; }
+    .actions{ display:none; }
+    a{ color:#111; text-decoration:none; }
+    .pill, .badge, .chip{ border-color:#ddd; background:#f6f7fb; color:#111; }
+    .dot{ box-shadow:none; }
+    .bookBtn, .toggleBtn{ display:none; }
+    .priceBox{ border-color:#ddd; background:#fff; }
+    .select{ display:none; }
+  }
+</style>
 
-    /* Print styling */
-    @media print{
-      :root{ --bg:#fff; --text:#111; --muted:#444; }
-      body{ background:#fff; color:#111; }
-      .wrap{ max-width: 900px; padding: 0; }
-      .card, .day, .section, .kv, .tip{ box-shadow:none; background:#fff; border-color:#ddd; }
-      .card .hd, .day .top{ background:#f6f7fb; }
-      .actions{ display:none; }
-      a{ color:#111; text-decoration:none; }
-      .pill, .badge, .chip{ border-color:#ddd; background:#f6f7fb; color:#111; }
-      .dot{ box-shadow:none; }
-      .bookBtn, .toggleBtn{ display:none; }
-      .priceBox{ border-color:#ddd; background:#fff; }
-      .select{ display:none; }
-    }
-  </style>
 </head>
 
 <body>
@@ -569,8 +575,8 @@
       </article>
     </section>
 
-    <!-- Budget & Booking -->
-    <section class="card" id="budgetBooking" style="margin-top:14px;">
+
+<section class="card" id="budgetBooking" style="margin-top:14px;">
       <div class="hd">
         <h2>Budget &amp; Booking</h2>
         <span class="badge">estimate + booked</span>
@@ -595,50 +601,676 @@
           <div class="budgetGrid">
             <div class="stat">
               <div class="k">Estimated total per person</div>
-              <div class="v" id="totalPerPerson">€0.00</div>
+              <div class="v" id="totalPerPerson">€—</div>
               <div class="s">based on selected Colosseum option</div>
             </div>
             <div class="stat">
               <div class="k">Estimated total for 4 people</div>
-              <div class="v" id="totalGroup">€0.00</div>
+              <div class="v" id="totalGroup">€—</div>
               <div class="s">2 couples (4 people)</div>
             </div>
 
             <div class="stat">
               <div class="k">Booked total per person</div>
-              <div class="v" id="bookedPerPerson">€0.00</div>
+              <div class="v" id="bookedPerPerson">€—</div>
               <div class="s">sum of items marked “Booked”</div>
             </div>
             <div class="stat">
               <div class="k">Booked total for 4 people</div>
-              <div class="v" id="bookedGroup">€0.00</div>
-              <div class="s">live from shared booking status</div>
+              <div class="v" id="bookedGroup">€—</div>
+              <div class="s">live from shared status</div>
             </div>
           </div>
 
           <div class="miniNote" id="budgetNote">
-            Tip: Use the “Booked / To book” buttons under each item. Status is shared via Google Sheets.
+            Tip: Use the “Booked / To book” buttons under each item. Booking status is shared with your group.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Timeline & items -->
-    <section class="timeline" id="timeline">
-      <!-- (rest of your existing itinerary content remains unchanged below in the file) -->
-    </section>
+
+    <main class="card" style="margin-top:14px;">
+      <div class="hd">
+        <h2>Day-by-day plan</h2>
+        <span class="badge">14 → 20</span>
+      </div>
+      <div class="bd">
+        <div class="timeline">
+
+          <!-- Day 1 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 1 — Sun 14 Jun • Arrival + Ancient Rome</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">Arrive FCO 08:35 • Keep it smooth + iconic sights</div>
+              </div>
+              <div class="meta">
+                <span class="pill rome">Rome</span>
+                <span class="pill travel">Arrival</span>
+                <span class="pill food">Food</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>09:30–12:30</span></h4>
+                <ul>
+                  <li>Land, luggage, and transfer into the city</li>
+                  <li>Check-in / drop bags</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Lunch <span>easy classics</span></h4>
+                <ul>
+                  <li>Trattoria da Enzo al 29 (Trastevere)</li>
+                  <li>or Osteria da Fortunata (fresh pasta)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>ancient Rome</span></h4>
+                <ul>
+                  <li>Colosseum</li>
+                  <li>Roman Forum + Palatine Hill</li>
+                  <li>Walk Via dei Fori Imperiali</li>
+                </ul>
+
+                <div class="priceBox">
+                  <div class="priceRow" data-item="colosseum_guided">
+                    <div>
+                      <div class="priceTitle">Colosseum + Forum + Palatine — Option 1 (Guided Tour)</div>
+                      <div class="price">€59.00</div>
+                      <div class="priceMeta">Recommended if you want context + history storytelling.</div>
+                    </div>
+                    <div class="btnRow">
+                      <a class="bookBtn" target="_blank"
+                        href="https://www.getyourguide.com/colosseum-l2619/colosseum-roman-forum-palatine-hill-guided-tour-t195566?ranking_uuid=93d3cc31-eee0-4a4b-b79f-6ef780d425a2&date_from=2026-06-14">
+                        Book tour
+                      </a>
+                      <button class="toggleBtn" type="button"
+                        data-booking-id="colosseum_guided"
+                        data-price="59.00"
+                        data-label="Colosseum (Guided)">
+                        To book
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="priceRow" data-item="colosseum_audio">
+                    <div>
+                      <div class="priceTitle">Colosseum + Forum + Palatine — Option 2 (Audio Guide)</div>
+                      <div class="price">€56.90</div>
+                      <div class="priceMeta">More flexible pace.</div>
+                    </div>
+                    <div class="btnRow">
+                      <a class="bookBtn" target="_blank"
+                        href="https://www.colosseumdiroma-tickets.com/en/">
+                        Book ticket
+                      </a>
+                      <button class="toggleBtn" type="button"
+                        data-booking-id="colosseum_audio"
+                        data-price="56.90"
+                        data-label="Colosseum (Audio)">
+                        To book
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <h4>Evening <span>Monti vibes</span></h4>
+                <ul>
+                  <li>Aperitivo: Ai Tre Scalini (Monti)</li>
+                  <li>Dinner: La Taverna dei Fori Imperiali</li>
+                  <li>Stroll around Monti after dinner</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 2 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 2 — Mon 15 Jun • Vatican + Trastevere</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">Big art + relaxed neighborhood wandering</div>
+              </div>
+              <div class="meta">
+                <span class="pill rome">Rome</span>
+                <span class="pill food">Aperitivo</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>Vatican</span></h4>
+                <ul>
+                  <li>Vatican Museums + Sistine Chapel (book early slot)</li>
+                  <li>St. Peter’s Basilica</li>
+                  <li>Optional: Dome climb for views</li>
+                </ul>
+
+                <div class="priceBox">
+                  <div class="priceRow" data-item="vatican_tour">
+                    <div>
+                      <div class="priceTitle">Vatican Museums + Sistine Chapel + St. Peter’s (Guided Tour)</div>
+                      <div class="price">€79.00</div>
+                    </div>
+                    <div class="btnRow">
+                      <a class="bookBtn" target="_blank"
+                        href="https://book.thevaticantickets.com/book/7998/select/?cookieBanner=false">
+                        Book tour
+                      </a>
+                      <button class="toggleBtn" type="button"
+                        data-booking-id="vatican_tour"
+                        data-price="79.00"
+                        data-label="Vatican Tour">
+                        To book
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <h4>Lunch <span>near Vatican</span></h4>
+                <ul>
+                  <li>Pizzarium Bonci (pizza al taglio)</li>
+                  <li>or Pastasciutta (quick & tasty)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>Trastevere</span></h4>
+                <ul>
+                  <li>Cross the Tiber into Trastevere</li>
+                  <li>Santa Maria in Trastevere</li>
+                  <li>Explore lanes, shops, and small piazzas</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Evening <span>Roman dinner</span></h4>
+                <ul>
+                  <li>Dinner: Tonnarello (lively) or Osteria der Belli</li>
+                  <li>After: Freni e Frizioni (cocktails)</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 3 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 3 — Tue 16 Jun • Historic Center + “King of Carbonara”</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">Pantheon → fountains → carbonara highlight</div>
+              </div>
+              <div class="meta">
+                <span class="pill rome">Rome</span>
+                <span class="pill food">Carbonara</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>walking loop</span></h4>
+                <ul>
+                  <li>Pantheon</li>
+                  <li>Piazza Navona</li>
+                  <li>Campo de’ Fiori</li>
+                  <li>Coffee: Sant’Eustachio Il Caffè</li>
+                </ul>
+
+                <div class="priceBox">
+                  <div class="priceRow" data-item="pantheon">
+                    <div>
+                      <div class="priceTitle">Pantheon — Priority Entry</div>
+                      <div class="price">€12.00</div>
+                    </div>
+                    <div class="btnRow">
+                      <a class="bookBtn" target="_blank"
+                        href="https://www.getyourguide.com/rome-l33/rome-pantheon-priority-entry-tickets-interactive-app-t1006974?ranking_uuid=ee225fb0-a962-48e4-915b-b1c8edd14721&date_from=2026-06-16">
+                        Book ticket
+                      </a>
+                      <button class="toggleBtn" type="button"
+                        data-booking-id="pantheon"
+                        data-price="12.00"
+                        data-label="Pantheon">
+                        To book
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <h4>Lunch <span>must-do</span></h4>
+                <ul>
+                  <li><strong>Luciano Cucina Italiana</strong> — carbonara mission</li>
+                  <li>Order: classic carbonara + wine pairing if you like</li>
+                  <li><em>Reserve ahead</em> (popular)</li>
+                </ul>
+
+                <div class="priceBox">
+                  <div class="priceRow" data-item="luciano">
+                    <div>
+                      <div class="priceTitle">Luciano Cucina Italiana — Carbonara Plate</div>
+                      <div class="price">€17.00 + €2.50 service</div>
+                      <div class="priceMeta">Budget uses €19.50 per person.</div>
+                    </div>
+                    <div class="btnRow">
+                      <a class="bookBtn" target="_blank"
+                        href="https://lucianocucinaitaliana.superbexperience.com/reserve/experience">
+                        Reserve
+                      </a>
+                      <button class="toggleBtn" type="button"
+                        data-booking-id="luciano"
+                        data-price="19.50"
+                        data-label="Luciano Carbonara">
+                        To book
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>Dolce Vita</span></h4>
+                <ul>
+                  <li>Trevi Fountain</li>
+                  <li>Spanish Steps</li>
+                  <li>Via del Corso / Via dei Condotti stroll</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Evening <span>farewell Rome</span></h4>
+                <ul>
+                  <li>Dinner: Armando al Pantheon</li>
+                  <li>Gelato: Giolitti or Gelateria del Teatro</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 4 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 4 — Wed 17 Jun • Train to Milan + Duomo</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">Ideal departure: 09:00–11:00 (TBD)</div>
+              </div>
+              <div class="meta">
+                <span class="pill travel">Travel</span>
+                <span class="pill milan">Milan</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>Rome</span></h4>
+                <ul>
+                  <li>Breakfast near hotel</li>
+                  <li>High-speed train (Frecciarossa / Italo) to Milano Centrale (~3h)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>first Milan walk</span></h4>
+                <ul>
+                  <li>Check-in / drop bags</li>
+                  <li>Duomo (inside) + rooftop terraces</li>
+                  <li>Galleria Vittorio Emanuele II</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Dinner <span>Milanese</span></h4>
+                <ul>
+                  <li>Trattoria Milanese (classic)</li>
+                  <li>or Ratanà (modern Lombard)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Optional <span>night stroll</span></h4>
+                <ul>
+                  <li>Gelato + Piazza Duomo at night</li>
+                  <li>Light drinks near Brera</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 5 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 5 — Thu 18 Jun • Last Supper + Brera + Navigli</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">Book the Last Supper well in advance</div>
+              </div>
+              <div class="meta">
+                <span class="pill milan">Milan</span>
+                <span class="pill food">Aperitivo</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>art</span></h4>
+                <ul>
+                  <li>Santa Maria delle Grazie</li>
+                  <li><strong>Leonardo’s Last Supper</strong> (timed entry)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Lunch <span>casual</span></h4>
+                <ul>
+                  <li>Piz (very popular)</li>
+                  <li>or Luini (panzerotti)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>Brera</span></h4>
+                <ul>
+                  <li>Brera district cafés + boutiques</li>
+                  <li>Optional: Pinacoteca di Brera</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Evening <span>Navigli</span></h4>
+                <ul>
+                  <li>Aperitivo by the canals: Mag Café / Ugo</li>
+                  <li>Dinner: El Brellin or Osteria del Binari</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 6 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 6 — Fri 19 Jun • Castello Sforzesco + Final Night</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">History, parks, then a celebratory dinner</div>
+              </div>
+              <div class="meta">
+                <span class="pill milan">Milan</span>
+                <span class="pill food">Celebration</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>history</span></h4>
+                <ul>
+                  <li>Castello Sforzesco</li>
+                  <li>Parco Sempione walk</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Lunch <span>great picks</span></h4>
+                <ul>
+                  <li>Nerino Dieci Trattoria (excellent pasta)</li>
+                  <li>or Aimo e Nadia (splurge)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>choose your vibe</span></h4>
+                <ul>
+                  <li>Fashion district (Quadrilatero)</li>
+                  <li>or Porta Nuova / Bosco Verticale area</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Final night <span>dinner + cocktails</span></h4>
+                <ul>
+                  <li>Dinner: Trippa (modern Milanese)</li>
+                  <li>Cocktails: Nottingham Forest / 1930 Speakeasy (reserve)</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 7 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 7 — Sat 20 Jun • Fly home</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">MXP 10:10 flight — early transfer</div>
+              </div>
+              <div class="meta">
+                <span class="pill travel">Departure</span>
+                <span class="pill milan">Milan</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Early morning <span>06:30–07:00</span></h4>
+                <ul>
+                  <li>Leave city for Malpensa</li>
+                  <li>Malpensa Express from Milano Centrale (~50 min) or taxi</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Flight <span>10:10</span></h4>
+                <ul>
+                  <li>Milan Malpensa (MXP) → Malta</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </main>
 
     <footer>
-      Shared itinerary • Status synced via Google Sheets • Works offline after first load
+      Totals include: Colosseum (choose 1) + Vatican + Pantheon + Luciano carbonara (€19.50). Booking status is shared.
     </footer>
   </div>
 
-  <!-- Your existing main JS block should be below (unchanged) -->
   <script>
-    // (Your original JS remains in your file. This template keeps structure intact.)
-  </script>
+    // ====== Shared Booking via Google Sheets ======
+    const PEOPLE = 4;
+    
+    // Paste your Apps Script Web App URL here:
+    const API_URL = "https://script.google.com/macros/s/AKfycbyc2Dd85dSBNKG3wi5WzCscIk8h_TJ6NQ09zpsYRCvvOt7Xy_aY0mOn0ggjkK_8Bqzg/exec";
+    
+    // Prices for totals (same as before)
+    const PRICES = {
+      colosseum_guided: 59.00,
+      colosseum_audio: 56.90,
+      vatican_tour: 79.00,
+      pantheon: 12.00,
+      luciano: 19.50
+    };
+    
+    // Shared booking status cache (id -> 'booked' | 'to_book')
+    let BOOKING_STATUS = {};
 
-  <!-- Service worker registration -->
+    // Local-only: keep just the selected Colosseum option on device
+    const STORAGE_OPTION = "itinerary_colosseum_option_shared";
+    
+    function money(n){ return "€" + (Math.round(n*100)/100).toFixed(2); }
+    
+    function getSelectedColosseumId(){
+      const sel = document.getElementById("colosseumOption");
+      const val = sel ? sel.value : "guided";
+      return val === "audio" ? "colosseum_audio" : "colosseum_guided";
+    }
+    
+    function syncColosseumRowsVisibility(){
+      const selectedId = getSelectedColosseumId();
+      const guidedRow = document.querySelector('[data-item="colosseum_guided"]');
+      const audioRow  = document.querySelector('[data-item="colosseum_audio"]');
+      if (guidedRow) guidedRow.style.opacity = (selectedId === "colosseum_guided") ? "1" : ".7";
+      if (audioRow)  audioRow.style.opacity  = (selectedId === "colosseum_audio") ? "1" : ".7";
+    }
+    
+    function computeTotals(){
+      const selectedColosseumId = getSelectedColosseumId();
+      const perPerson =
+        PRICES[selectedColosseumId] +
+        PRICES.vatican_tour +
+        PRICES.pantheon +
+        PRICES.luciano;
+    
+      const group = perPerson * PEOPLE;
+    
+      const perEl = document.getElementById("totalPerPerson");
+      const groupEl = document.getElementById("totalGroup");
+      if (perEl) perEl.textContent = money(perPerson);
+      if (groupEl) groupEl.textContent = money(group);
+    
+      syncColosseumRowsVisibility();
+    }
+
+
+    function updateBookedTotals(){
+      const selectedColosseumId = getSelectedColosseumId();
+      const idsToCount = [selectedColosseumId, "vatican_tour", "pantheon", "luciano"];
+
+      let bookedPerPerson = 0;
+      idsToCount.forEach(id => {
+        if (BOOKING_STATUS[id] === "booked") bookedPerPerson += (PRICES[id] || 0);
+      });
+
+      const bookedGroup = bookedPerPerson * PEOPLE;
+
+      const bpp = document.getElementById("bookedPerPerson");
+      const bg  = document.getElementById("bookedGroup");
+      if (bpp) bpp.textContent = money(bookedPerPerson);
+      if (bg)  bg.textContent  = money(bookedGroup);
+
+      // Helpful note if a different Colosseum option is marked booked
+      const otherColosseumId = selectedColosseumId === "colosseum_guided" ? "colosseum_audio" : "colosseum_guided";
+      const note = document.getElementById("budgetNote");
+      if (note){
+        if (BOOKING_STATUS[otherColosseumId] === "booked" && BOOKING_STATUS[selectedColosseumId] !== "booked") {
+          note.innerHTML = 'Note: The other Colosseum option is marked <strong>Booked</strong>. Switch the selector to match if needed.';
+        } else {
+          note.textContent = 'Tip: Use the “Booked / To book” buttons under each item. Booking status is shared with your group.';
+        }
+      }
+    }
+
+    
+    async function apiGetBookings(){
+      const res = await fetch(API_URL, { method: "GET" });
+      return await res.json(); // array of {id,name,status}
+    }
+    
+    async function apiSetBooking(id, name, status){
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ id, name, status })
+      });
+      return await res.json();
+    }
+    
+    function setBtnState(btn, status){
+      const booked = status === "booked";
+      btn.classList.toggle("booked", booked);
+      btn.textContent = booked ? "Booked" : "To book";
+      btn.setAttribute("aria-pressed", booked ? "true" : "false");
+    }
+    
+    
+    async function refreshBookingUI(){
+      let data;
+      try {
+        data = await apiGetBookings();
+      } catch (e) {
+        console.error("Failed to load bookings", e);
+        return;
+      }
+
+      const map = new Map();
+      (Array.isArray(data) ? data : []).forEach(item => map.set(item.id, item));
+
+      // cache shared booking status for totals
+      BOOKING_STATUS = {};
+      map.forEach((val, key) => { BOOKING_STATUS[key] = val.status; });
+
+      document.querySelectorAll(".toggleBtn[data-booking-id]").forEach(btn => {
+        const id = btn.getAttribute("data-booking-id");
+        const label = btn.getAttribute("data-label") || id;
+        const item = map.get(id);
+
+        // default if not found
+        const status = item ? item.status : "to_book";
+
+        setBtnState(btn, status);
+
+        // attach click once
+        if (!btn.dataset.bound) {
+          btn.dataset.bound = "1";
+          btn.addEventListener("click", async () => {
+            const currentBooked = btn.classList.contains("booked");
+            const nextStatus = currentBooked ? "to_book" : "booked";
+            btn.disabled = true;
+            try {
+              await apiSetBooking(id, label, nextStatus);
+            } finally {
+              btn.disabled = false;
+            }
+            await refreshBookingUI();
+          });
+        }
+      });
+
+      // update booked totals based on latest shared status
+      updateBookedTotals();
+    }
+
+
+    // Colosseum option selector (device-local)
+    function initColosseumSelect(){
+      const sel = document.getElementById("colosseumOption");
+      if (!sel) return;
+    
+      const saved = localStorage.getItem(STORAGE_OPTION) || "guided";
+      sel.value = saved;
+    
+      sel.addEventListener("change", () => {
+        localStorage.setItem(STORAGE_OPTION, sel.value);
+        computeTotals();
+        updateBookedTotals();
+      });
+    }
+    
+    // Expand/collapse helper
+    function toggleAll(open) {
+      document.querySelectorAll('details.day').forEach(d => d.open = open);
+    }
+    
+    // Init
+    (async function(){
+      initColosseumSelect();
+      computeTotals();
+      await refreshBookingUI();
+      updateBookedTotals();
+    
+      // auto-refresh every 5s so friends see updates without refresh
+      setInterval(refreshBookingUI, 5000);
+    })();
+    
+
+  </script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
@@ -646,5 +1278,18 @@
       });
     }
   </script>
+
+
+  
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
