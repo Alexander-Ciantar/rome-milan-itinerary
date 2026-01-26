@@ -1166,10 +1166,22 @@
       // auto-refresh every 5s so friends see updates without refresh
       setInterval(refreshBookingUI, 5000);
     })();
+    
 
   </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js");
+      });
+    }
+  </script>
+
+
+  
 </body>
 </html>
+
 
 
 
