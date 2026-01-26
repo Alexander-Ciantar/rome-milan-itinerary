@@ -1,4 +1,4 @@
-const CACHE_NAME = "rome-milan-v3";
+const CACHE_NAME = "rome-milan-v4";
 
 const FILES_TO_CACHE = [
   "/rome-milan-itinerary/",
