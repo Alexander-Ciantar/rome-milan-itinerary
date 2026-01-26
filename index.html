@@ -371,7 +371,28 @@
     text-align:center;
   }
 
-  /* --- Booking / Prices UI --- */
+
+    /* Header actions (Day-by-day plan buttons) */
+    .hdActions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .hdBtn{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-size: 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.18);
+    }
+    .hdBtn:hover{background: rgba(255,255,255,.08)}
+
+    /* --- Booking / Prices UI --- */
   .priceBox{
     margin-top:10px;
     padding:12px;
@@ -565,13 +586,7 @@
               Luciano Cucina Italiana (Luciano Monosilio — “King of Carbonara”). Reserve ahead.
             </div>
           </div>
-
-          <div class="actions" style="justify-content:flex-start;">
-            <button onclick="window.print()">Print / Save as PDF</button>
-            <button onclick="expandAll()">Expand all</button>
-            <button onclick="collapseAll()">Collapse all</button>
-          </div>
-        </div>
+</div>
       </article>
     </section>
 
@@ -633,13 +648,18 @@
     <main class="card" style="margin-top:14px;">
       <div class="hd">
         <h2>Day-by-day plan</h2>
-        <span class="badge">14 → 20</span>
+        <div class="hdActions">
+          <span class="badge">14 → 20</span>
+          <button class="hdBtn" type="button" onclick="window.print()">Print / Save as PDF</button>
+          <button class="hdBtn" type="button" onclick="toggleAll(true)">Expand all</button>
+          <button class="hdBtn" type="button" onclick="toggleAll(false)">Collapse all</button>
+        </div>
       </div>
       <div class="bd">
         <div class="timeline">
 
           <!-- Day 1 -->
-          <details class="day" open>
+          <details class="day" data-date="2026-06-14">
             <summary class="top">
               <div>
                 <h3>Day 1 — Sun 14 Jun • Arrival + Ancient Rome</h3>
@@ -732,7 +752,7 @@
           </details>
 
           <!-- Day 2 -->
-          <details class="day" open>
+          <details class="day" data-date="2026-06-15">
             <summary class="top">
               <div>
                 <h3>Day 2 — Mon 15 Jun • Vatican + Trastevere</h3>
@@ -803,7 +823,7 @@
           </details>
 
           <!-- Day 3 -->
-          <details class="day" open>
+          <details class="day" data-date="2026-06-16">
             <summary class="top">
               <div>
                 <h3>Day 3 — Tue 16 Jun • Historic Center + “King of Carbonara”</h3>
@@ -898,7 +918,7 @@
           </details>
 
           <!-- Day 4 -->
-          <details class="day" open>
+          <details class="day" data-date="2026-06-17">
             <summary class="top">
               <div>
                 <h3>Day 4 — Wed 17 Jun • Train to Milan + Duomo</h3>
@@ -947,7 +967,7 @@
           </details>
 
           <!-- Day 5 -->
-          <details class="day" open>
+          <details class="day" data-date="2026-06-18">
             <summary class="top">
               <div>
                 <h3>Day 5 — Thu 18 Jun • Last Supper + Brera + Navigli</h3>
@@ -995,7 +1015,7 @@
           </details>
 
           <!-- Day 6 -->
-          <details class="day" open>
+          <details class="day" data-date="2026-06-19">
             <summary class="top">
               <div>
                 <h3>Day 6 — Fri 19 Jun • Castello Sforzesco + Final Night</h3>
@@ -1043,7 +1063,7 @@
           </details>
 
           <!-- Day 7 -->
-          <details class="day" open>
+          <details class="day" data-date="2026-06-20">
             <summary class="top">
               <div>
                 <h3>Day 7 — Sat 20 Jun • Fly home</h3>
@@ -1258,11 +1278,32 @@
       document.querySelectorAll('details.day').forEach(d => d.open = open);
     }
     
-    // Init
+    
+
+    // Auto-expand "today" (during the trip). Otherwise open Day 1.
+    function autoExpandToday(){
+      const days = Array.from(document.querySelectorAll('details.day'));
+      if(!days.length) return;
+
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth()+1).padStart(2,'0');
+      const dd = String(now.getDate()).padStart(2,'0');
+      const today = `${yyyy}-${mm}-${dd}`;
+
+      // Close all first
+      days.forEach(d => d.open = false);
+
+      // Try match on data-date
+      const match = days.find(d => d.dataset.date === today);
+      (match || days[0]).open = true;
+    }
+// Init
     (async function(){
       initColosseumSelect();
       computeTotals();
-      await refreshBookingUI();
+            autoExpandToday();
+await refreshBookingUI();
       updateBookedTotals();
     
       // auto-refresh every 5s so friends see updates without refresh
