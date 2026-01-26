@@ -984,9 +984,13 @@
   </div>
 
   <script>
+    // ====== Shared Booking via Google Sheets ======
     const PEOPLE = 4;
-
-    // Prices used in totals
+    
+    // Paste your Apps Script Web App URL here:
+    const API_URL = "https://script.google.com/macros/s/AKfycbyc2Dd85dSBNKG3wi5WzCscIk8h_TJ6NQ09zpsYRCvvOt7Xy_aY0mOn0ggjkK_8Bqzg/exec";
+    
+    // Prices for totals (same as before)
     const PRICES = {
       colosseum_guided: 59.00,
       colosseum_audio: 56.90,
@@ -994,117 +998,135 @@
       pantheon: 12.00,
       luciano: 19.50
     };
-
-    const STORAGE_KEYS = {
-      option: "itinerary_colosseum_option",
-      bookedPrefix: "itinerary_booked_"
-    };
-
-    function money(n){
-      // Always show 2 decimals with euro sign
-      return "€" + (Math.round(n * 100) / 100).toFixed(2);
-    }
-
+    
+    // Local-only: keep just the selected Colosseum option on device
+    const STORAGE_OPTION = "itinerary_colosseum_option_shared";
+    
+    function money(n){ return "€" + (Math.round(n*100)/100).toFixed(2); }
+    
     function getSelectedColosseumId(){
       const sel = document.getElementById("colosseumOption");
       const val = sel ? sel.value : "guided";
       return val === "audio" ? "colosseum_audio" : "colosseum_guided";
     }
-
-    function setColosseumOptionUI(value){
-      const sel = document.getElementById("colosseumOption");
-      if (!sel) return;
-      sel.value = value;
-    }
-
-    function saveColosseumOption(value){
-      localStorage.setItem(STORAGE_KEYS.option, value);
-    }
-
-    function loadColosseumOption(){
-      return localStorage.getItem(STORAGE_KEYS.option) || "guided";
-    }
-
-    function isBooked(id){
-      return localStorage.getItem(STORAGE_KEYS.bookedPrefix + id) === "1";
-    }
-
-    function setBooked(id, booked){
-      localStorage.setItem(STORAGE_KEYS.bookedPrefix + id, booked ? "1" : "0");
-    }
-
-    function updateToggleButton(btn){
-      const id = btn.getAttribute("data-booking-id");
-      const booked = isBooked(id);
-      btn.classList.toggle("booked", booked);
-      btn.textContent = booked ? "Booked" : "To book";
-      btn.setAttribute("aria-pressed", booked ? "true" : "false");
-    }
-
+    
     function syncColosseumRowsVisibility(){
       const selectedId = getSelectedColosseumId();
       const guidedRow = document.querySelector('[data-item="colosseum_guided"]');
       const audioRow  = document.querySelector('[data-item="colosseum_audio"]');
-
-      // Subtle highlight: selected option slightly brighter
       if (guidedRow) guidedRow.style.opacity = (selectedId === "colosseum_guided") ? "1" : ".7";
       if (audioRow)  audioRow.style.opacity  = (selectedId === "colosseum_audio") ? "1" : ".7";
     }
-
+    
     function computeTotals(){
-      // Totals always include these core items; Colosseum depends on selected option.
       const selectedColosseumId = getSelectedColosseumId();
       const perPerson =
         PRICES[selectedColosseumId] +
         PRICES.vatican_tour +
         PRICES.pantheon +
         PRICES.luciano;
-
+    
       const group = perPerson * PEOPLE;
-
+    
       const perEl = document.getElementById("totalPerPerson");
       const groupEl = document.getElementById("totalGroup");
       if (perEl) perEl.textContent = money(perPerson);
       if (groupEl) groupEl.textContent = money(group);
-
+    
       syncColosseumRowsVisibility();
     }
-
-    function initToggles(){
+    
+    async function apiGetBookings(){
+      const res = await fetch(API_URL, { method: "GET" });
+      return await res.json(); // array of {id,name,status}
+    }
+    
+    async function apiSetBooking(id, name, status){
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ id, name, status })
+      });
+      return await res.json();
+    }
+    
+    function setBtnState(btn, status){
+      const booked = status === "booked";
+      btn.classList.toggle("booked", booked);
+      btn.textContent = booked ? "Booked" : "To book";
+      btn.setAttribute("aria-pressed", booked ? "true" : "false");
+    }
+    
+    async function refreshBookingUI(){
+      let data;
+      try {
+        data = await apiGetBookings();
+      } catch (e) {
+        console.error("Failed to load bookings", e);
+        return;
+      }
+    
+      const map = new Map();
+      (Array.isArray(data) ? data : []).forEach(item => map.set(item.id, item));
+    
       document.querySelectorAll(".toggleBtn[data-booking-id]").forEach(btn => {
-        updateToggleButton(btn);
-        btn.addEventListener("click", () => {
-          const id = btn.getAttribute("data-booking-id");
-          const next = !isBooked(id);
-          setBooked(id, next);
-          updateToggleButton(btn);
-        });
+        const id = btn.getAttribute("data-booking-id");
+        const label = btn.getAttribute("data-label") || id;
+        const item = map.get(id);
+    
+        // default if not found
+        const status = item ? item.status : "to_book";
+    
+        setBtnState(btn, status);
+    
+        // attach click once
+        if (!btn.dataset.bound) {
+          btn.dataset.bound = "1";
+          btn.addEventListener("click", async () => {
+            const currentBooked = btn.classList.contains("booked");
+            const nextStatus = currentBooked ? "to_book" : "booked";
+            btn.disabled = true;
+            try {
+              await apiSetBooking(id, label, nextStatus);
+            } finally {
+              btn.disabled = false;
+            }
+            await refreshBookingUI();
+          });
+        }
       });
     }
-
+    
+    // Colosseum option selector (device-local)
     function initColosseumSelect(){
-      const saved = loadColosseumOption();
-      setColosseumOptionUI(saved);
-
       const sel = document.getElementById("colosseumOption");
       if (!sel) return;
-
+    
+      const saved = localStorage.getItem(STORAGE_OPTION) || "guided";
+      sel.value = saved;
+    
       sel.addEventListener("change", () => {
-        saveColosseumOption(sel.value);
+        localStorage.setItem(STORAGE_OPTION, sel.value);
         computeTotals();
       });
     }
-
+    
+    // Expand/collapse helper
     function toggleAll(open) {
       document.querySelectorAll('details.day').forEach(d => d.open = open);
     }
-
+    
     // Init
-    (function(){
+    (async function(){
       initColosseumSelect();
-      initToggles();
       computeTotals();
+      await refreshBookingUI();
+    
+      // auto-refresh every 20s so friends see updates without refresh
+      setInterval(refreshBookingUI, 20000);
     })();
+
   </script>
 </body>
 </html>
+
