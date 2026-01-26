@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rome & Milan Itinerary • 14–20 June 2026</title>
+  <meta name="description" content="A history + food itinerary for two couples visiting Rome and Milan, 14–20 June 2026." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#121a33;
+      --muted:#9fb0d0;
+      --text:#eaf0ff;
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
+      --good:#34d399;
+      --warn:#fbbf24;
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 15% 10%, rgba(125, 211, 252, .18), transparent 60%),
+        radial-gradient(900px 700px at 85% 15%, rgba(167, 139, 250, .16), transparent 55%),
+        radial-gradient(900px 700px at 60% 110%, rgba(52, 211, 153, .12), transparent 55%),
+        linear-gradient(180deg, var(--bg), #050816 70%, #040611);
+      line-height:1.45;
+    }
+    a{color:inherit}
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+    header{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    .title{
+      flex: 1 1 520px;
+      min-width: 280px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size: clamp(24px, 4vw, 40px);
+      letter-spacing:-.02em;
+    }
+    .subtitle{
+      color:var(--muted);
+      margin:0;
+      font-size: 15px;
+    }
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      flex: 1 1 260px;
+      min-width: 260px;
+      margin-top: 6px;
+    }
+    .chip{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--text);
+      display:flex;
+      gap:8px;
+      align-items:center;
+      box-shadow: 0 2px 10px rgba(0,0,0,.15);
+      white-space:nowrap;
+    }
+    .dot{
+      width:9px;height:9px;border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(125,211,252,.12);
+      flex:0 0 auto;
+    }
+    .dot.purple{background:var(--accent2); box-shadow:0 0 0 4px rgba(167,139,250,.12)}
+    .dot.green{background:var(--good); box-shadow:0 0 0 4px rgba(52,211,153,.12)}
+    .dot.yellow{background:var(--warn); box-shadow:0 0 0 4px rgba(251,191,36,.12)}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      margin: 18px 0 12px;
+    }
+    @media (max-width: 920px){
+      .grid{grid-template-columns:1fr; }
+      .chips{justify-content:flex-start}
+    }
+
+    .card{
+      background: rgba(18,26,51,.78);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding: 16px 16px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .card .hd h2{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:-.01em;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .badge{
+      font-family: var(--mono);
+      font-size: 11px;
+      color: rgba(234,240,255,.9);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space:nowrap;
+    }
+    .card .bd{
+      padding: 14px 16px 16px;
+      color: rgba(234,240,255,.92);
+    }
+    .muted{color: var(--muted)}
+    .kvs{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top: 8px;
+    }
+    @media (max-width: 560px){ .kvs{grid-template-columns:1fr} }
+    .kv{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .kv .k{
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .kv .v{
+      font-size: 13px;
+    }
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .day{
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      overflow:hidden;
+      background: rgba(255,255,255,.03);
+    }
+    .day .top{
+      padding: 14px 14px 12px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      background: linear-gradient(90deg, rgba(125,211,252,.10), rgba(167,139,250,.08), rgba(255,255,255,0));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .day h3{
+      margin:0;
+      font-size: 15px;
+      letter-spacing:-.01em;
+    }
+    .meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    .pill{
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.12);
+      color: rgba(234,240,255,.9);
+      white-space:nowrap;
+    }
+    .pill.rome{border-color: rgba(125,211,252,.28); background: rgba(125,211,252,.08)}
+    .pill.milan{border-color: rgba(167,139,250,.28); background: rgba(167,139,250,.08)}
+    .pill.travel{border-color: rgba(251,191,36,.35); background: rgba(251,191,36,.10)}
+    .pill.food{border-color: rgba(52,211,153,.30); background: rgba(52,211,153,.10)}
+
+    .sections{
+      padding: 12px 14px 14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 780px){ .sections{grid-template-columns:1fr} }
+
+    .section{
+      padding: 12px 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      background: rgba(0,0,0,.10);
+    }
+    .section h4{
+      margin:0 0 8px;
+      font-size: 12px;
+      color: rgba(234,240,255,.92);
+      letter-spacing:.02em;
+      text-transform: uppercase;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .section h4 span{
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-transform:none;
+    }
+    ul{
+      margin:0;
+      padding-left: 18px;
+      color: rgba(234,240,255,.92);
+      font-size: 13px;
+    }
+    li{margin: 6px 0}
+    .callout{
+      margin-top: 10px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(52,211,153,.35);
+      background: rgba(52,211,153,.08);
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .callout strong{display:block; margin-bottom:4px}
+    .callout .emoji{font-size: 18px; line-height:1; margin-top: 2px}
+    .tips{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 840px){ .tips{grid-template-columns:1fr} }
+    .tip{
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .tip h3{margin:0 0 6px; font-size: 14px}
+    .tip p{margin:0; color: var(--muted); font-size: 13px}
+
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      margin-top: 12px;
+    }
+    button{
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 14px;
+      cursor:pointer;
+      font-size: 13px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.18);
+    }
+    button:hover{background: rgba(255,255,255,.08)}
+    footer{
+      margin-top: 18px;
+      color: rgba(159,176,208,.9);
+      font-size: 12px;
+      text-align:center;
+    }
+
+    /* --- Booking / Prices UI --- */
+    .priceBox{
+      margin-top:10px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+    }
+    .priceRow{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+      flex-wrap:wrap;
+      padding:10px 0;
+      border-top:1px dashed rgba(255,255,255,.10);
+    }
+    .priceRow:first-child{border-top:none; padding-top:0}
+    .priceRow:last-child{padding-bottom:0}
+
+    .priceTitle{font-weight:700; font-size:13px; margin-bottom:2px}
+    .priceMeta{font-size:12px; color: rgba(234,240,255,.72)}
+    .price{
+      font-weight:800;
+      font-size:14px;
+      color: var(--warn);
+      margin-top:4px;
+      letter-spacing:.01em;
+    }
+
+    .btnRow{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; align-items:center}
+    .bookBtn{
+      display:inline-block;
+      text-decoration:none;
+      padding:8px 12px;
+      border-radius:12px;
+      font-size:12px;
+      font-weight:700;
+      border:1px solid rgba(255,255,255,.20);
+      background: linear-gradient(135deg, rgba(125,211,252,.92), rgba(167,139,250,.92));
+      color:#0b1020;
+      transition: transform .15s ease, filter .15s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,.20);
+    }
+    .bookBtn:hover{transform: translateY(-1px); filter: brightness(1.05);}
+
+    .toggleBtn{
+      padding:8px 10px;
+      border-radius:12px;
+      font-size:12px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      box-shadow: 0 4px 16px rgba(0,0,0,.18);
+    }
+    .toggleBtn.booked{
+      border-color: rgba(52,211,153,.30);
+      background: rgba(52,211,153,.16);
+      color: rgba(234,240,255,.95);
+    }
+
+    .select{
+      width:100%;
+      margin-top:6px;
+      padding:10px 10px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      color: var(--text);
+      outline:none;
+    }
+
+    .budgetGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    @media (max-width:560px){ .budgetGrid{grid-template-columns:1fr} }
+    .stat{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .stat .k{font-size:12px; color: var(--muted); margin-bottom:6px}
+    .stat .v{font-size:18px; font-weight:900; letter-spacing:-.01em}
+    .stat .s{font-size:12px; color: rgba(234,240,255,.72); margin-top:4px}
+
+    .miniNote{
+      margin-top:10px;
+      font-size:12px;
+      color: rgba(234,240,255,.70);
+    }
+
+    /* Print styling */
+    @media print{
+      :root{ --bg:#fff; --text:#111; --muted:#444; }
+      body{ background:#fff; color:#111; }
+      .wrap{ max-width: 900px; padding: 0; }
+      .card, .day, .section, .kv, .tip{ box-shadow:none; background:#fff; border-color:#ddd; }
+      .card .hd, .day .top{ background:#f6f7fb; }
+      .actions{ display:none; }
+      a{ color:#111; text-decoration:none; }
+      .pill, .badge, .chip{ border-color:#ddd; background:#f6f7fb; color:#111; }
+      .dot{ box-shadow:none; }
+      .bookBtn, .toggleBtn{ display:none; }
+      .priceBox{ border-color:#ddd; background:#fff; }
+      .select{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Rome & Milan Itinerary</h1>
+        <p class="subtitle">
+          2 couples • History + Food • <strong>14–20 June 2026</strong><br />
+          Rome: <strong>14–17 June</strong> • Milan: <strong>17–20 June</strong>
+        </p>
+      </div>
+
+      <div class="chips" aria-label="Quick facts">
+        <div class="chip"><span class="dot"></span><span><strong>Arrive:</strong> Rome FCO 08:35 (14 Jun)</span></div>
+        <div class="chip"><span class="dot yellow"></span><span><strong>Train:</strong> Rome → Milan (17 Jun, TBD)</span></div>
+        <div class="chip"><span class="dot purple"></span><span><strong>Depart:</strong> Milan MXP 10:10 (20 Jun)</span></div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="hd">
+          <h2>Overview</h2>
+          <span class="badge">v2 • budget + booking</span>
+        </div>
+        <div class="bd">
+          <p class="muted" style="margin:0 0 10px;">
+            A balanced plan with must-see history, iconic neighborhoods, and great food — with room to wander.
+          </p>
+
+          <div class="kvs">
+            <div class="kv">
+              <div class="k">Style</div>
+              <div class="v">Full days, not rushed • Walkable hubs • Evening aperitivo</div>
+            </div>
+            <div class="kv">
+              <div class="k">Must-book early</div>
+              <div class="v">Colosseum • Vatican Museums • <strong>Luciano Cucina Italiana</strong> • Last Supper</div>
+            </div>
+          </div>
+
+          <!-- Budget & Booking -->
+          <div class="priceBox" style="margin-top:12px;">
+            <div class="priceTitle">Budget estimate (tickets + carbonara)</div>
+            <div class="priceMeta">This totals: Colosseum/Forum/Palatine (choose 1) + Vatican tour + Pantheon + Luciano carbonara.</div>
+
+            <label class="priceMeta" for="colosseumOption" style="display:block; margin-top:10px;">
+              Colosseum option (updates totals)
+            </label>
+            <select id="colosseumOption" class="select">
+              <option value="guided">Option 1 — Guided Tour (€59.00)</option>
+              <option value="audio">Option 2 — Audio Guide (€56.90)</option>
+            </select>
+
+            <div class="budgetGrid">
+              <div class="stat">
+                <div class="k">Estimated total per person</div>
+                <div class="v" id="totalPerPerson">€—</div>
+                <div class="s">based on selected Colosseum option</div>
+              </div>
+              <div class="stat">
+                <div class="k">Estimated total for 4 people</div>
+                <div class="v" id="totalGroup">€—</div>
+                <div class="s">2 couples (4 people)</div>
+              </div>
+            </div>
+
+            <div class="miniNote">
+              Tip: Use the “Booked / To book” buttons below each item. Your status is saved on this device.
+            </div>
+          </div>
+
+          <div class="callout" role="note">
+            <div class="emoji">👑</div>
+            <div>
+              <strong>Carbonara goal:</strong>
+              Luciano Cucina Italiana (Luciano Monosilio — “King of Carbonara”). Reserve ahead.
+            </div>
+          </div>
+
+          <div class="actions">
+            <button onclick="window.print()" type="button">Print / Save as PDF</button>
+            <button onclick="toggleAll(true)" type="button">Expand all</button>
+            <button onclick="toggleAll(false)" type="button">Collapse all</button>
+          </div>
+        </div>
+      </article>
+
+      <aside class="card">
+        <div class="hd">
+          <h2>Travel Notes</h2>
+          <span class="badge">quick</span>
+        </div>
+        <div class="bd">
+          <ul>
+            <li><strong>Rome arrival:</strong> Malta 07:00 → FCO 08:35 (14 Jun)</li>
+            <li><strong>Rome → Milan:</strong> High-speed train (17 Jun, time TBD)</li>
+            <li><strong>Return flight:</strong> MXP 10:10 → Malta (20 Jun)</li>
+          </ul>
+
+          <div class="tips">
+            <div class="tip">
+              <h3>Rome transfers</h3>
+              <p>Leonardo Express (to Termini) or taxi (fixed fare to central Rome).</p>
+            </div>
+            <div class="tip">
+              <h3>Milan airport morning</h3>
+              <p>Plan to leave the city around <strong>06:30–07:00</strong> for a 10:10 flight from MXP.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <main class="card" style="margin-top:14px;">
+      <div class="hd">
+        <h2>Day-by-day plan</h2>
+        <span class="badge">14 → 20</span>
+      </div>
+      <div class="bd">
+        <div class="timeline">
+
+          <!-- Day 1 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 1 — Sun 14 Jun • Arrival + Ancient Rome</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">Arrive FCO 08:35 • Keep it smooth + iconic sights</div>
+              </div>
+              <div class="meta">
+                <span class="pill rome">Rome</span>
+                <span class="pill travel">Arrival</span>
+                <span class="pill food">Food</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>09:30–12:30</span></h4>
+                <ul>
+                  <li>Land, luggage, and transfer into the city</li>
+                  <li>Check-in / drop bags</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Lunch <span>easy classics</span></h4>
+                <ul>
+                  <li>Trattoria da Enzo al 29 (Trastevere)</li>
+                  <li>or Osteria da Fortunata (fresh pasta)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>ancient Rome</span></h4>
+                <ul>
+                  <li>Colosseum</li>
+                  <li>Roman Forum + Palatine Hill</li>
+                  <li>Walk Via dei Fori Imperiali</li>
+                </ul>
+
+                <div class="priceBox">
+                  <div class="priceRow" data-item="colosseum_guided">
+                    <div>
+                      <div class="priceTitle">Colosseum + Forum + Palatine — Option 1 (Guided Tour)</div>
+                      <div class="price">€59.00</div>
+                      <div class="priceMeta">Recommended if you want context + history storytelling.</div>
+                    </div>
+                    <div class="btnRow">
+                      <a class="bookBtn" target="_blank"
+                        href="https://www.getyourguide.com/colosseum-l2619/colosseum-roman-forum-palatine-hill-guided-tour-t195566?ranking_uuid=93d3cc31-eee0-4a4b-b79f-6ef780d425a2&date_from=2026-06-14">
+                        Book tour
+                      </a>
+                      <button class="toggleBtn" type="button"
+                        data-booking-id="colosseum_guided"
+                        data-price="59.00"
+                        data-label="Colosseum (Guided)">
+                        To book
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="priceRow" data-item="colosseum_audio">
+                    <div>
+                      <div class="priceTitle">Colosseum + Forum + Palatine — Option 2 (Audio Guide)</div>
+                      <div class="price">€56.90</div>
+                      <div class="priceMeta">More flexible pace.</div>
+                    </div>
+                    <div class="btnRow">
+                      <a class="bookBtn" target="_blank"
+                        href="https://www.colosseumdiroma-tickets.com/en/">
+                        Book ticket
+                      </a>
+                      <button class="toggleBtn" type="button"
+                        data-booking-id="colosseum_audio"
+                        data-price="56.90"
+                        data-label="Colosseum (Audio)">
+                        To book
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <h4>Evening <span>Monti vibes</span></h4>
+                <ul>
+                  <li>Aperitivo: Ai Tre Scalini (Monti)</li>
+                  <li>Dinner: La Taverna dei Fori Imperiali</li>
+                  <li>Stroll around Monti after dinner</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 2 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 2 — Mon 15 Jun • Vatican + Trastevere</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">Big art + relaxed neighborhood wandering</div>
+              </div>
+              <div class="meta">
+                <span class="pill rome">Rome</span>
+                <span class="pill food">Aperitivo</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>Vatican</span></h4>
+                <ul>
+                  <li>Vatican Museums + Sistine Chapel (book early slot)</li>
+                  <li>St. Peter’s Basilica</li>
+                  <li>Optional: Dome climb for views</li>
+                </ul>
+
+                <div class="priceBox">
+                  <div class="priceRow" data-item="vatican_tour">
+                    <div>
+                      <div class="priceTitle">Vatican Museums + Sistine Chapel + St. Peter’s (Guided Tour)</div>
+                      <div class="price">€79.00</div>
+                    </div>
+                    <div class="btnRow">
+                      <a class="bookBtn" target="_blank"
+                        href="https://book.thevaticantickets.com/book/7998/select/?cookieBanner=false">
+                        Book tour
+                      </a>
+                      <button class="toggleBtn" type="button"
+                        data-booking-id="vatican_tour"
+                        data-price="79.00"
+                        data-label="Vatican Tour">
+                        To book
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <h4>Lunch <span>near Vatican</span></h4>
+                <ul>
+                  <li>Pizzarium Bonci (pizza al taglio)</li>
+                  <li>or Pastasciutta (quick & tasty)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>Trastevere</span></h4>
+                <ul>
+                  <li>Cross the Tiber into Trastevere</li>
+                  <li>Santa Maria in Trastevere</li>
+                  <li>Explore lanes, shops, and small piazzas</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Evening <span>Roman dinner</span></h4>
+                <ul>
+                  <li>Dinner: Tonnarello (lively) or Osteria der Belli</li>
+                  <li>After: Freni e Frizioni (cocktails)</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 3 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 3 — Tue 16 Jun • Historic Center + “King of Carbonara”</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">Pantheon → fountains → carbonara highlight</div>
+              </div>
+              <div class="meta">
+                <span class="pill rome">Rome</span>
+                <span class="pill food">Carbonara</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>walking loop</span></h4>
+                <ul>
+                  <li>Pantheon</li>
+                  <li>Piazza Navona</li>
+                  <li>Campo de’ Fiori</li>
+                  <li>Coffee: Sant’Eustachio Il Caffè</li>
+                </ul>
+
+                <div class="priceBox">
+                  <div class="priceRow" data-item="pantheon">
+                    <div>
+                      <div class="priceTitle">Pantheon — Priority Entry</div>
+                      <div class="price">€12.00</div>
+                    </div>
+                    <div class="btnRow">
+                      <a class="bookBtn" target="_blank"
+                        href="https://www.getyourguide.com/rome-l33/rome-pantheon-priority-entry-tickets-interactive-app-t1006974?ranking_uuid=ee225fb0-a962-48e4-915b-b1c8edd14721&date_from=2026-06-16">
+                        Book ticket
+                      </a>
+                      <button class="toggleBtn" type="button"
+                        data-booking-id="pantheon"
+                        data-price="12.00"
+                        data-label="Pantheon">
+                        To book
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <h4>Lunch <span>must-do</span></h4>
+                <ul>
+                  <li><strong>Luciano Cucina Italiana</strong> — carbonara mission</li>
+                  <li>Order: classic carbonara + wine pairing if you like</li>
+                  <li><em>Reserve ahead</em> (popular)</li>
+                </ul>
+
+                <div class="priceBox">
+                  <div class="priceRow" data-item="luciano">
+                    <div>
+                      <div class="priceTitle">Luciano Cucina Italiana — Carbonara Plate</div>
+                      <div class="price">€17.00 + €2.50 service</div>
+                      <div class="priceMeta">Budget uses €19.50 per person.</div>
+                    </div>
+                    <div class="btnRow">
+                      <a class="bookBtn" target="_blank"
+                        href="https://lucianocucinaitaliana.superbexperience.com/reserve/experience">
+                        Reserve
+                      </a>
+                      <button class="toggleBtn" type="button"
+                        data-booking-id="luciano"
+                        data-price="19.50"
+                        data-label="Luciano Carbonara">
+                        To book
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>Dolce Vita</span></h4>
+                <ul>
+                  <li>Trevi Fountain</li>
+                  <li>Spanish Steps</li>
+                  <li>Via del Corso / Via dei Condotti stroll</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Evening <span>farewell Rome</span></h4>
+                <ul>
+                  <li>Dinner: Armando al Pantheon</li>
+                  <li>Gelato: Giolitti or Gelateria del Teatro</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 4 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 4 — Wed 17 Jun • Train to Milan + Duomo</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">Ideal departure: 09:00–11:00 (TBD)</div>
+              </div>
+              <div class="meta">
+                <span class="pill travel">Travel</span>
+                <span class="pill milan">Milan</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>Rome</span></h4>
+                <ul>
+                  <li>Breakfast near hotel</li>
+                  <li>High-speed train (Frecciarossa / Italo) to Milano Centrale (~3h)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>first Milan walk</span></h4>
+                <ul>
+                  <li>Check-in / drop bags</li>
+                  <li>Duomo (inside) + rooftop terraces</li>
+                  <li>Galleria Vittorio Emanuele II</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Dinner <span>Milanese</span></h4>
+                <ul>
+                  <li>Trattoria Milanese (classic)</li>
+                  <li>or Ratanà (modern Lombard)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Optional <span>night stroll</span></h4>
+                <ul>
+                  <li>Gelato + Piazza Duomo at night</li>
+                  <li>Light drinks near Brera</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 5 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 5 — Thu 18 Jun • Last Supper + Brera + Navigli</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">Book the Last Supper well in advance</div>
+              </div>
+              <div class="meta">
+                <span class="pill milan">Milan</span>
+                <span class="pill food">Aperitivo</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>art</span></h4>
+                <ul>
+                  <li>Santa Maria delle Grazie</li>
+                  <li><strong>Leonardo’s Last Supper</strong> (timed entry)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Lunch <span>casual</span></h4>
+                <ul>
+                  <li>Piz (very popular)</li>
+                  <li>or Luini (panzerotti)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>Brera</span></h4>
+                <ul>
+                  <li>Brera district cafés + boutiques</li>
+                  <li>Optional: Pinacoteca di Brera</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Evening <span>Navigli</span></h4>
+                <ul>
+                  <li>Aperitivo by the canals: Mag Café / Ugo</li>
+                  <li>Dinner: El Brellin or Osteria del Binari</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 6 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 6 — Fri 19 Jun • Castello Sforzesco + Final Night</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">History, parks, then a celebratory dinner</div>
+              </div>
+              <div class="meta">
+                <span class="pill milan">Milan</span>
+                <span class="pill food">Celebration</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Morning <span>history</span></h4>
+                <ul>
+                  <li>Castello Sforzesco</li>
+                  <li>Parco Sempione walk</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Lunch <span>great picks</span></h4>
+                <ul>
+                  <li>Nerino Dieci Trattoria (excellent pasta)</li>
+                  <li>or Aimo e Nadia (splurge)</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Afternoon <span>choose your vibe</span></h4>
+                <ul>
+                  <li>Fashion district (Quadrilatero)</li>
+                  <li>or Porta Nuova / Bosco Verticale area</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Final night <span>dinner + cocktails</span></h4>
+                <ul>
+                  <li>Dinner: Trippa (modern Milanese)</li>
+                  <li>Cocktails: Nottingham Forest / 1930 Speakeasy (reserve)</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+          <!-- Day 7 -->
+          <details class="day" open>
+            <summary class="top">
+              <div>
+                <h3>Day 7 — Sat 20 Jun • Fly home</h3>
+                <div class="muted" style="font-size:12px; margin-top:4px;">MXP 10:10 flight — early transfer</div>
+              </div>
+              <div class="meta">
+                <span class="pill travel">Departure</span>
+                <span class="pill milan">Milan</span>
+              </div>
+            </summary>
+
+            <div class="sections">
+              <section class="section">
+                <h4>Early morning <span>06:30–07:00</span></h4>
+                <ul>
+                  <li>Leave city for Malpensa</li>
+                  <li>Malpensa Express from Milano Centrale (~50 min) or taxi</li>
+                </ul>
+              </section>
+
+              <section class="section">
+                <h4>Flight <span>10:10</span></h4>
+                <ul>
+                  <li>Milan Malpensa (MXP) → Malta</li>
+                </ul>
+              </section>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      Totals include: Colosseum (choose 1) + Vatican + Pantheon + Luciano carbonara (€19.50). Status saves on this device.
+    </footer>
+  </div>
+
+  <script>
+    const PEOPLE = 4;
+
+    // Prices used in totals
+    const PRICES = {
+      colosseum_guided: 59.00,
+      colosseum_audio: 56.90,
+      vatican_tour: 79.00,
+      pantheon: 12.00,
+      luciano: 19.50
+    };
+
+    const STORAGE_KEYS = {
+      option: "itinerary_colosseum_option",
+      bookedPrefix: "itinerary_booked_"
+    };
+
+    function money(n){
+      // Always show 2 decimals with euro sign
+      return "€" + (Math.round(n * 100) / 100).toFixed(2);
+    }
+
+    function getSelectedColosseumId(){
+      const sel = document.getElementById("colosseumOption");
+      const val = sel ? sel.value : "guided";
+      return val === "audio" ? "colosseum_audio" : "colosseum_guided";
+    }
+
+    function setColosseumOptionUI(value){
+      const sel = document.getElementById("colosseumOption");
+      if (!sel) return;
+      sel.value = value;
+    }
+
+    function saveColosseumOption(value){
+      localStorage.setItem(STORAGE_KEYS.option, value);
+    }
+
+    function loadColosseumOption(){
+      return localStorage.getItem(STORAGE_KEYS.option) || "guided";
+    }
+
+    function isBooked(id){
+      return localStorage.getItem(STORAGE_KEYS.bookedPrefix + id) === "1";
+    }
+
+    function setBooked(id, booked){
+      localStorage.setItem(STORAGE_KEYS.bookedPrefix + id, booked ? "1" : "0");
+    }
+
+    function updateToggleButton(btn){
+      const id = btn.getAttribute("data-booking-id");
+      const booked = isBooked(id);
+      btn.classList.toggle("booked", booked);
+      btn.textContent = booked ? "Booked" : "To book";
+      btn.setAttribute("aria-pressed", booked ? "true" : "false");
+    }
+
+    function syncColosseumRowsVisibility(){
+      const selectedId = getSelectedColosseumId();
+      const guidedRow = document.querySelector('[data-item="colosseum_guided"]');
+      const audioRow  = document.querySelector('[data-item="colosseum_audio"]');
+
+      // Subtle highlight: selected option slightly brighter
+      if (guidedRow) guidedRow.style.opacity = (selectedId === "colosseum_guided") ? "1" : ".7";
+      if (audioRow)  audioRow.style.opacity  = (selectedId === "colosseum_audio") ? "1" : ".7";
+    }
+
+    function computeTotals(){
+      // Totals always include these core items; Colosseum depends on selected option.
+      const selectedColosseumId = getSelectedColosseumId();
+      const perPerson =
+        PRICES[selectedColosseumId] +
+        PRICES.vatican_tour +
+        PRICES.pantheon +
+        PRICES.luciano;
+
+      const group = perPerson * PEOPLE;
+
+      const perEl = document.getElementById("totalPerPerson");
+      const groupEl = document.getElementById("totalGroup");
+      if (perEl) perEl.textContent = money(perPerson);
+      if (groupEl) groupEl.textContent = money(group);
+
+      syncColosseumRowsVisibility();
+    }
+
+    function initToggles(){
+      document.querySelectorAll(".toggleBtn[data-booking-id]").forEach(btn => {
+        updateToggleButton(btn);
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-booking-id");
+          const next = !isBooked(id);
+          setBooked(id, next);
+          updateToggleButton(btn);
+        });
+      });
+    }
+
+    function initColosseumSelect(){
+      const saved = loadColosseumOption();
+      setColosseumOptionUI(saved);
+
+      const sel = document.getElementById("colosseumOption");
+      if (!sel) return;
+
+      sel.addEventListener("change", () => {
+        saveColosseumOption(sel.value);
+        computeTotals();
+      });
+    }
+
+    function toggleAll(open) {
+      document.querySelectorAll('details.day').forEach(d => d.open = open);
+    }
+
+    // Init
+    (function(){
+      initColosseumSelect();
+      initToggles();
+      computeTotals();
+    })();
+  </script>
+</body>
+</html>
