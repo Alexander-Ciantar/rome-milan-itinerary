@@ -1,10 +1,13 @@
-const CACHE_NAME = "rome-milan-v5";
+const CACHE_NAME = "rome-milan-v6";
 
 const FILES_TO_CACHE = [
   "/rome-milan-itinerary/",
   "/rome-milan-itinerary/index.html",
   "/rome-milan-itinerary/favicon.png",
   "/rome-milan-itinerary/manifest.webmanifest"
+  "/rome-milan-itinerary/Vatican_Tickets.pdf"
+  "/rome-milan-itinerary/Colloseum_tickets.pdf"
+  "/rome-milan-itinerary/XGJVKG-db82ed48-b69c-0a7c-618a-6c23fb9dcead.pdf"
 ];
 
 self.addEventListener("install", (event) => {
