@@ -1,13 +1,14 @@
-const CACHE_NAME = "rome-milan-v6";
+const BASE = "/rome-milan-itinerary/";
+const CACHE_NAME = "rome-milan-v11";
 
 const FILES_TO_CACHE = [
-  "/rome-milan-itinerary/",
-  "/rome-milan-itinerary/index.html",
-  "/rome-milan-itinerary/favicon.png",
-  "/rome-milan-itinerary/manifest.webmanifest",
-  "/rome-milan-itinerary/Vatican_Tickets.pdf",
-  "/rome-milan-itinerary/Colloseum_tickets.pdf",
-  "/rome-milan-itinerary/XGJVKG-db82ed48-b69c-0a7c-618a-6c23fb9dcead.pdf"
+  BASE,
+  BASE + "index.html",
+  BASE + "favicon.png",
+  BASE + "manifest.webmanifest",
+  BASE + "Vatican_Tickets.pdf",
+  BASE + "Colloseum_tickets.pdf",
+  BASE + "XGJVKG-db82ed48-b69c-0a7c-618a-6c23fb9dcead.pdf"
 ];
 
 self.addEventListener("install", (event) => {
@@ -28,32 +29,26 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const req = event.request;
+  const url = new URL(req.url);
 
-  // Navigation requests (opening the app / clicking links)
+  if (!url.pathname.startsWith(BASE)) return;
+
+  // Navigations: network-first, fallback to cached app shell
   if (req.mode === "navigate") {
     event.respondWith(
       fetch(req)
         .then((res) => {
-          // Keep the app shell fresh
-          const copy = res.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put("/rome-milan-itinerary/", copy);
-            // also keep index.html fresh (some browsers request this directly)
-            cache.put("/rome-milan-itinerary/index.html", copy.clone());
-          });
+          const clone = res.clone();
+          event.waitUntil(
+            caches.open(CACHE_NAME).then((cache) => cache.put(BASE, clone))
+          );
           return res;
         })
-        .catch(() =>
-          // Offline fallback: app shell
-          caches.match("/rome-milan-itinerary/") ||
-          caches.match("/rome-milan-itinerary/index.html")
-        )
+        .catch(() => caches.match(BASE))
     );
     return;
   }
 
   // Assets: cache-first
-  event.respondWith(
-    caches.match(req).then((cached) => cached || fetch(req))
-  );
+  event.respondWith(caches.match(req).then((cached) => cached || fetch(req)));
 });
