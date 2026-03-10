@@ -1,5 +1,5 @@
 const BASE = "/rome-milan-itinerary/";
-const CACHE_NAME = "rome-milan-v12";
+const CACHE_NAME = "rome-milan-v13";
 
 const FILES_TO_CACHE = [
   BASE,
