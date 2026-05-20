@@ -1,5 +1,5 @@
 const BASE = "/rome-milan-itinerary/";
-const CACHE_NAME = "rome-milan-v13";
+const CACHE_NAME = "rome-milan-v14";
 
 const FILES_TO_CACHE = [
   BASE,
@@ -8,7 +8,7 @@ const FILES_TO_CACHE = [
   BASE + "manifest.webmanifest",
   BASE + "Vatican_Tickets.pdf",
   BASE + "Colloseum_tickets.pdf",
-  BASE + "XGJVKG-db82ed48-b69c-0a7c-618a-6c23fb9dcead.pdf"
+  BASE + "XGJVKG.pdf"
 ];
 
 self.addEventListener("install", (event) => {
